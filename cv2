@@ -1,0 +1,21 @@
+import cv2
+
+def grayscale(image):
+    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return gray_image
+
+def resize(image, width, height):
+    resized_image = cv2.resize(image, (width, height))
+    return resized_image
+
+def save_image(image, filename):
+    cv2.imwrite(filename, image)
+
+def main():
+    image = cv2.imread('image.jpg')
+    gray_image = grayscale(image)
+    resized_image = resize(image, 800, 600)
+    save_image(resized_image, 'resized_image.jpg')
+
+if __name__ == '__main__':
+    main()
